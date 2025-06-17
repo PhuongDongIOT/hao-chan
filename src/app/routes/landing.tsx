@@ -17,6 +17,7 @@ const LandingRoute = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
   const divRef = useRef<HTMLDivElement>(null);
   const divWarningRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const [play] = useSound(clickSfx, { volume: 1 });
 
@@ -46,7 +47,7 @@ const LandingRoute = () => {
       stagger: {
         each: 1.1,
         onStart: () => {
-          gsap.to(document.body, {
+          gsap.to(document.getElementById('container'), {
             backgroundColor: boxColors[i % boxColors.length],
             duration: 0.8,
           });
@@ -90,8 +91,22 @@ const LandingRoute = () => {
     }
   };
 
+
+  const handleFullscreen = () => {
+    if (containerRef.current) {
+      if (containerRef.current.requestFullscreen) {
+        containerRef.current.requestFullscreen();
+      }
+    }
+  };
+
+  const excutePlay = () => {
+    handleFullscreen();
+    setTimeout(() => { play(); }, 200)
+  }
+
   return (
-    <div className='min-h-screen h-screen w-screen bg-gray-240 flex items-center justify-center overflow-hidden'>
+    <div ref={containerRef} id="container" className='min-h-screen h-screen w-screen bg-gray-240 flex items-center justify-center overflow-hidden'>
       {isShow ? <div className='absolute h-screen w-screen z-0 overflow-hidden'>
         <div className='transform -rotate-45 relative -left-[90%] lg:-left-[10%] -top-[90%] w-[2000px] lg:-top-[70%]'>
           {[9, 10, 11, 12, 9, 12, 10, 11, 10, 12].map((duration, idx) => (
@@ -107,7 +122,7 @@ const LandingRoute = () => {
         <p className='text-6xl lg:text-7xl text-black text-dancing-script relative -top-8 lg:-top-12'>Basshunter</p>
       </div>
 
-      <ClickBox callSound={play} onCallBack={handlePlay} />
+      <ClickBox callSound={excutePlay} onCallBack={handlePlay} />
 
       <audio ref={audioRef} src='/music.mp3' preload='auto' className='hidden' />
 
