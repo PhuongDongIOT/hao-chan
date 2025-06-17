@@ -132,20 +132,30 @@ const LandingRoute = () => {
         />
         <div ref={divRef} className='hidden space-y-2'>
           <div className='flex flex-col lg:flex-row gap-2 lg:gap-4'>
-            <div className='box w-28 h-28 md:w-44 md:h-44 bg-blue-300 rounded-md overflow-hidden flex items-center justify-center'>
-              <img src='/image-1.png' alt='' srcSet='' className='w-full h-full object-cover' />
+            <div className='box w-28 h-28 md:w-44 md:h-44 rounded-md overflow-hidden flex items-center justify-center'>
+              <img src='/image-1.png' alt='' srcSet='' className='w-full h-full object-cover' style={{
+                clipPath: `polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%)`
+              }} />
             </div>
-            <div className='box w-28 h-28 md:w-44 md:h-44 bg-blue-300 rounded-md overflow-hidden flex items-center justify-center'>
-              <img src='/image-2.png' alt='' srcSet='' className='w-full h-full object-cover' />
+            <div className='box w-28 h-28 md:w-44 md:h-44 rounded-md overflow-hidden flex items-center justify-center'>
+              <img src='/image-2.png' alt='' srcSet='' className='w-full h-full object-cover' style={{
+                clipPath: `polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%)`
+              }} />
             </div>
-            <div className='box w-28 h-28 md:w-44 md:h-44 bg-blue-300 rounded-md overflow-hidden flex items-center justify-center'>
-              <img src='/image-3.png' alt='' srcSet='' className='w-full h-full object-cover' />
+            <div className='box w-28 h-28 md:w-44 md:h-44 rounded-md overflow-hidden flex items-center justify-center'>
+              <img src='/image-3.png' alt='' srcSet='' className='w-full h-full object-cover' style={{
+                clipPath: `polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%)`
+              }} />
             </div>
-            <div className='box w-28 h-28 md:w-44 md:h-44 bg-blue-300 rounded-md overflow-hidden flex items-center justify-center'>
-              <img src='/image-4.png' alt='' srcSet='' className='w-full h-full object-cover' />
+            <div className='box w-28 h-28 md:w-44 md:h-44 rounded-md overflow-hidden flex items-center justify-center'>
+              <img src='/image-4.png' alt='' srcSet='' className='w-full h-full object-cover' style={{
+                clipPath: `polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%)`
+              }} />
             </div>
-            <div className='box w-28 h-28 md:w-44 md:h-44 bg-blue-300 rounded-md overflow-hidden flex items-center justify-center'>
-              <img src='/image-5.png' alt='' srcSet='' className='w-full h-full object-cover' />
+            <div className='box w-28 h-28 md:w-44 md:h-44 rounded-md overflow-hidden flex items-center justify-center'>
+              <img src='/image-5.png' alt='' srcSet='' className='w-full h-full object-cover' style={{
+                clipPath: `polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%)`
+              }} />
             </div>
           </div>
         </div>
