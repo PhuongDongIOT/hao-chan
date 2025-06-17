@@ -106,7 +106,7 @@ const LandingRoute = () => {
   }
 
   return (
-    <div ref={containerRef} id="container" className='min-h-screen h-screen w-screen bg-gray-240 flex items-center justify-center overflow-hidden'>
+    <div ref={containerRef} id="container" className='bg-white min-h-screen h-screen w-screen bg-gray-240 flex items-center justify-center overflow-hidden'>
       {isShow ? <div className='absolute h-screen w-screen z-0 overflow-hidden'>
         <div className='transform -rotate-45 relative -left-[90%] lg:-left-[10%] -top-[90%] w-[2000px] lg:-top-[70%]'>
           {[9, 10, 11, 12, 9, 12, 10, 11, 10, 12].map((duration, idx) => (
