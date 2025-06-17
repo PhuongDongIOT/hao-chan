@@ -45,7 +45,7 @@ export function ClickBox({ callSound, onCallBack }: ClickBoxProps) {
         <div
             ref={boxRef}
             onClick={handleClick}
-            className="w-48 h-48 rounded-xl mx-auto cursor-pointer"
+            className="w-48 h-48 rounded-xl mx-auto cursor-pointer animate-wiggle "
         >
             <img src="/photo.png" alt="" srcSet="" />
         </div>

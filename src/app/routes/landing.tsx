@@ -1,22 +1,41 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
+import Lottie from 'lottie-react';
 import useSound from 'use-sound';
-import ClickBox from './click-box';
-import clickSfx from '../../assets/sounds/click.wav';
+import { boxColors } from '@/constants';
+import ClickBox from '@/components/atoms/click-box';
 
-const boxColors = ['#a7b7fb', '#fcb465', '#b5b6cd', '#fedc00', '#ff8f79'];
+import clickSfx from '../../assets/sounds/click.wav';
+import groovyAnimation from '../../assets/jsons/animation.json';
+import ScrollingText from '../../components/atoms/scrolling-text';
 
 const LandingRoute = () => {
+  const [text, setText] = useState<string>('DANGEROUS');
   const videoRef = useRef<HTMLVideoElement>(null);
   const videoBoboRef = useRef<HTMLVideoElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
   const divRef = useRef<HTMLDivElement>(null);
+  const divWarningRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (divWarningRef.current) {
+      gsap.from(divWarningRef.current, {
+        opacity: 1,
+        y: -50,
+        duration: 1,
+        ease: 'power2.out',
+      });
+    }
+  }, []);
+
 
   const [play, { stop, pause }] = useSound(clickSfx, {
     volume: 1
   });
 
   const handlePlay = () => {
+    setText('HÀO CHAN');
+    if (divWarningRef.current) divWarningRef.current.style.display = 'none';
     audioRef.current?.play();
     if (divRef.current) divRef.current.style.display = 'block';
 
@@ -80,6 +99,26 @@ const LandingRoute = () => {
   return (
     <>
       <div className='min-h-screen h-screen w-screen bg-gray-240 flex items-center justify-center overflow-hidden'>
+        <div className='absolute h-screen w-screen z-0 overflow-hidden'>
+          <div className='transform -rotate-45 relative -left-[90%] lg:-left-[10%] -top-[90%] w-[2000px] lg:-top-[70%]'>
+            <ScrollingText duration={9} text={text} />
+            <ScrollingText duration={10} text={text} />
+            <ScrollingText duration={11} text={text} />
+            <ScrollingText duration={12} text={text} />
+            <ScrollingText duration={9} text={text} />
+            <ScrollingText duration={12} text={text} />
+            <ScrollingText duration={10} text={text} />
+            <ScrollingText duration={11} text={text} />
+            <ScrollingText duration={10} text={text} />
+            <ScrollingText duration={12} text={text} />
+          </div>
+        </div>
+        <div ref={divWarningRef} className='fixed top-[5%] lg:top-[10%] flex justify-center flex-col items-center'>
+          <div className='w-44 h-44'>
+            <Lottie animationData={groovyAnimation} loop={true} />
+          </div>
+          <p className='text-6xl lg:text-7xl text-black text-dancing-script relative -top-8 lg:-top-12'>Basshunter</p>
+        </div>
         <ClickBox callSound={() => play()} onCallBack={() => handlePlay()} />
         <audio ref={audioRef} src='/music.mp3' preload='auto' className='hidden' />
         <video
